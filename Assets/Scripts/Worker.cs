@@ -14,8 +14,7 @@ public class Worker : MonoBehaviour
     public GameObject workingMaterial;
     float speed = 0.6f;
     float startDurability = 10f, durability;
-    public Text exp;
-    public Text lvl;
+    public Text exp, lvl, mats;
     float xDiff, yDiff;
 
     void Start()
@@ -53,6 +52,7 @@ public class Worker : MonoBehaviour
     {
         exp.text = curExp.ToString();
         lvl.text = production.ToString();
+        mats.text = storedResources.ToString();
 
         xDiff = Math.Abs(workingMaterial.transform.position.x - gameObject.transform.position.x);
         yDiff = Math.Abs(workingMaterial.transform.position.y - gameObject.transform.position.y);
@@ -80,7 +80,7 @@ public class Worker : MonoBehaviour
                 expToNextLvl += 100;
                 production++;
             }
-            startDurability += 2;
+            startDurability += 1;
             durability = startDurability;
         }
     }
